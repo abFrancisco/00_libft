@@ -23,7 +23,7 @@ void    ft_rev_int_tab(int *tab, int size)
         i++;
     }   
 }
-int main()
+/* int main()
 {
     int tab[11] = {0,12,2,23,4,5,6,-7,8,9,10};
     int size = sizeof(tab)/4;
@@ -33,4 +33,4 @@ int main()
         printf("%d ",tab[i]);
     }
     printf("\n");
-} 
+}  */
