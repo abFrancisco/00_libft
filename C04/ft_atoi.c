@@ -61,6 +61,6 @@ int ft_atoi(char *str)
 
 
 int main(void){
-    char str[] = " --hello 0123456789 asd";
+    char str[] = "-12345678";
     printf("%i",ft_atoi(str));
 }
