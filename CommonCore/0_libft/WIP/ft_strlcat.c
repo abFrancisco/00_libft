@@ -33,35 +33,33 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-size_t strlcat(char *dst, const char *src, size_t size)
+size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int	dst_len;
 	int	src_len;
 	int	i;
 
-	dst_len = strlen(dst);
-	src_len = strlen(src);
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
 	i = 0;
-	char final[dst_len + src_len + 1];
-	while (i <= size)
+	while (dst[i] && i < size)
+		i++;
+	while (src[i - dst_len] && i < size)
 	{
-		if (i <= dst_len)
-			final[i] = *dst++;
-		else if (i <= dst_len + src_len)
-			final[i] = *src++;
-		else
-			final[i] = '\0';
+		dst[i] = src[i - dst_len];
 		i++;
 	}
+	dst[i] = '\0';
+	return (i);
 }
 
-int main(void)
+/* int main(void)
 {
 	char	*src = "123";
 	char	dest[50] = "teste";
-	/* strlcat(dest, src, 10);
-	printf("%lu\n", sizeof(dest)); */
+	strlcat(dest, src, 10);
+	printf("%lu\n", sizeof(dest));
 	printf("%s\n", dest);
-	strcat_s(dest, 0, src);
+	ft_strlcat(dest, src, 1);
 	printf("%s\n", dest);
-}
+} */
