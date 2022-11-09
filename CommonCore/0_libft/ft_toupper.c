@@ -6,13 +6,15 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:48:08 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/07 18:36:45 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:53:09 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c + 32);
+		return (c - 32);
 	return (c);
 }

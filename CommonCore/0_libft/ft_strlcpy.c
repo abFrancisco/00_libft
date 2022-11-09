@@ -6,9 +6,11 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:47:35 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/02 18:47:48 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:27:14 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {

@@ -6,17 +6,22 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:38:55 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/07 18:38:55 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:36:25 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int atoi(const char *nptr)
+#include "libft.h"
+
+int	ft_atoi(const char *nptr)
 {
-    int	sign = 1;
-	int	value = 0;
-    while (ft_isspace(*nptr))
+	int	sign;
+	int	value;
+
+	sign = 1;
+	value = 0;
+	while (ft_isspace(*nptr))
 		nptr++;
-    if (*nptr == '-' || *nptr == '+')
+	if (*nptr == '-' || *nptr == '+')
 		sign -= *nptr++ % '+';
 	while (ft_isdigit(*nptr))
 	{

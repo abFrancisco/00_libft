@@ -6,13 +6,15 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:43:40 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/07 18:43:40 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:42:40 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isspace(int c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
-        return (1);
+		return (1);
 	return (0);
 }

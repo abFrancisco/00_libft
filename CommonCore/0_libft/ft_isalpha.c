@@ -6,12 +6,11 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:41:49 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/02 18:53:55 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:26:20 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
@@ -19,7 +18,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-
-//strlcat (dont copy KO)
-//strnstr
-//atoi
