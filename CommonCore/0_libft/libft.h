@@ -6,14 +6,16 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:30:32 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/09 17:30:57 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:03:26 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <stdio.h>
 
+int				ft_strlen(char *str);
 int				ft_atoi(const char *nptr);
 void			ft_bzero(void *s, unsigned int n);
 void			*ft_calloc(size_t nmemb, size_t size);
@@ -34,8 +36,7 @@ char			*ft_strdup(const char *s);
 char			*ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size);
-int				ft_strlen(char *str);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_strnstr(const char	*big, const char *little, size_t len);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strtrim(char const *s1, char const *set);

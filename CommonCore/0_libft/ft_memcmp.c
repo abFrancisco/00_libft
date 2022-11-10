@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:51:46 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/09 18:09:31 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/10 13:25:03 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,10 @@ int	ft_memcmp(const void *s1, const void *s2, unsigned int n)
 	tmp_s2 = (unsigned char *)s2;
 	if (!n)
 		return (0);
-	while (*tmp_s1 == *tmp_s2 && *tmp_s1 != '\0' && *tmp_s2 != '\0' && i < n++)
+	while (*tmp_s1 == *tmp_s2 && *tmp_s1 != '\0' && *tmp_s2 != '\0' && ++i < n)
 	{
 		tmp_s1++;
 		tmp_s2++;
 	}
 	return (*tmp_s1 - *tmp_s2);
-}
-
-int main()
-{
-	printf("%i\n", memcmp("abcdefghij", "abcdefgxyz", 7));
-	printf("%i\n", ft_memcmp("abcdefghij", "abcdefgxyz", 7));
-	printf("%i\n", memcmp("zyxbcdefgh", "abcdefgxyz", 0));
-	printf("%i\n", ft_memcmp("zyxbcdefgh", "abcdefgxyz", 0));
 }

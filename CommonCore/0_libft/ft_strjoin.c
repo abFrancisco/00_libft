@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:27:47 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/09 17:26:54 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:14:23 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	len1 = ft_strlen((char *)s1);
 	len2 = ft_strlen((char *)s2);
 	i = 0;
-	join = malloc(len1 + len2);
+	join = malloc(len1 + len2 + 1);
 	if (join == NULL)
 		return (NULL);
 	while (i < len1)
@@ -30,7 +30,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		join[i] = s1[i];
 		i++;
 	}
-	while (i <= len1 + len2)
+	while (i < len1 + len2)
 	{
 		join[i] = s2[i - len1];
 		i++;
