@@ -1,9 +1,16 @@
 
+part1
+
+strlcat-KO
+strlcpy-KO
+strnstr-maybe KO
+
+
 part2
 
 substr-OK
 strjoin-OK
-strtrim-OK
-split-OK function too long
+strtrim-OK - KO?
+split-OK function too long -KO?
 itoa-brainfart
 strmapi(https://velog.io/@jungjaedev/ftstrmapi)-Looks wrong :S
