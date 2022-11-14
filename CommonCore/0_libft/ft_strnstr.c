@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:27:55 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/10 14:25:29 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:42:38 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 	size_t	little_len;
 
 	i = 0;
-	little_len = ft_strlen((char *)little);
+	little_len = ft_strlen(little);
 	if (!little_len || !len)
-		return ((char *)big);
+		return (big);
 	while (i <= len - little_len)
 	{
 		j = 0;
@@ -31,7 +31,7 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 				break ;
 			j++;
 			if (j == little_len)
-				return ((char *)big);
+				return (big);
 		}
 		i++;
 		big++;

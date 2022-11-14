@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 21:28:09 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/14 15:42:47 by falves-b         ###   ########.fr       */
+/*   Created: 2022/11/14 15:24:39 by falves-b          #+#    #+#             */
+/*   Updated: 2022/11/14 16:06:00 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_in_set(char c, char const *set)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	flag;
+	unsigned int	i;
 
-	flag = 0;
-	while (*set)
-		if (c == *set++)
-			flag = 1;
-	return (flag);
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	func(unsigned int n, char *cptr)
 {
-	int		len;
-	int		i;
-	char	*start;
+	*cptr = 48;
+	return ;
+}
 
-	len = ft_strlen(s1);
-	i = 0;
-	start = malloc(len + 1);
-	while (is_in_set(*s1, set))
-		s1++;
-	while (*s1)
-		start[i++] = *s1++;
-	i--;
-	while (is_in_set(start[i], set))
-		start[i--] = '\0';
-	return (start);
+int main()
+{
+	
+	/* char	*str;
+
+	str = "abcdef";
+	printf("%s\n", str);
+	ft_striteri(str, &func);
+	printf("%s\n", str); */
 }

@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 21:28:09 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/14 15:42:47 by falves-b         ###   ########.fr       */
+/*   Created: 2022/11/14 15:12:02 by falves-b          #+#    #+#             */
+/*   Updated: 2022/11/14 15:42:13 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_in_set(char c, char const *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	flag;
-
-	flag = 0;
-	while (*set)
-		if (c == *set++)
-			flag = 1;
-	return (flag);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	int		len;
+	char	*str;
 	int		i;
-	char	*start;
 
-	len = ft_strlen(s1);
+	str = malloc(ft_strlen(s) + 1);
+	if (!str)
+		return (NULL);
 	i = 0;
-	start = malloc(len + 1);
-	while (is_in_set(*s1, set))
-		s1++;
-	while (*s1)
-		start[i++] = *s1++;
-	i--;
-	while (is_in_set(start[i], set))
-		start[i--] = '\0';
-	return (start);
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
