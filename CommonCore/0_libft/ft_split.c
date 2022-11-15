@@ -12,52 +12,6 @@
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(const char *s)
-{
-	int		size;
-	char	*mem;
-
-	size = ft_strlen((char *)s) + 1;
-	mem = malloc(size);
-	ft_strlcpy(mem, s, size);
-	return (mem);
-}
-
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
-{
-	unsigned int	i;
-	int				strlen;
-
-	strlen = 0;
-	while (src[strlen] != '\0')
-		strlen++;
-	i = 0;
-	if (size == 0)
-		return (strlen);
-	while (i < size - 1 && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < size - 1)
-	{
-		dest[i++] = '\0';
-		i++;
-	}
-	dest[i] = '\0';
-	return (strlen);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**result;

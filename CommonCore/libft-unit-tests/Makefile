@@ -17,8 +17,35 @@
 #	Libft Makefile path
 LIBFTDIR	=	../0_libft
 #	Sources
-SRCDIR='./'
-SRC=src/main.c src/test_functions.c src/display_test_result.c src/signal.c src/sandbox.c src/bench_functions.c src/additional_functions.c hardcore-mode/hardcore-main.c hardcore-mode/error.c hardcore-mode/ncurses-display.c hardcore-mode/test-init.c hardcore-mode/test-utils.c hardcore-mode/test-strcpy.c hardcore-mode/test-strcmp.c hardcore-mode/test-strncmp.c hardcore-mode/test-memset.c hardcore-mode/test-memcpy.c hardcore-mode/test-memmove.c hardcore-mode/test-memchr.c hardcore-mode/test-memcmp.c hardcore-mode/test-strlen.c hardcore-mode/test-strncpy.c hardcore-mode/test-strcat.c hardcore-mode/test-strncat.c hardcore-mode/test-strchr.c hardcore-mode/test-strrchr.c hardcore-mode/test-strstr.c
+SRCDIR		=	./
+SRC			=	src/main.c						\
+				src/test_functions.c			\
+				src/display_test_result.c		\
+				src/signal.c					\
+				src/sandbox.c					\
+				src/bench_functions.c			\
+				src/additional_functions.c		\
+				hardcore-mode/hardcore-main.c   \
+				hardcore-mode/error.c           \
+				hardcore-mode/ncurses-display.c \
+				hardcore-mode/test-init.c       \
+				hardcore-mode/test-utils.c      \
+				hardcore-mode/test-strcpy.c     \
+				hardcore-mode/test-strcmp.c     \
+				hardcore-mode/test-strncmp.c    \
+				hardcore-mode/test-memset.c     \
+				hardcore-mode/test-memcpy.c     \
+				hardcore-mode/test-memmove.c    \
+				hardcore-mode/test-memchr.c     \
+				hardcore-mode/test-memcmp.c     \
+				hardcore-mode/test-strlen.c     \
+				hardcore-mode/test-strncpy.c    \
+				hardcore-mode/test-strcat.c     \
+				hardcore-mode/test-strncat.c    \
+				hardcore-mode/test-strchr.c     \
+				hardcore-mode/test-strrchr.c    \
+				hardcore-mode/test-strstr.c     \
+
 #	Objects
 OBJDIR		=	obj
 
