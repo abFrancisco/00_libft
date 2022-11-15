@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 21:27:55 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/14 16:08:19 by falves-b         ###   ########.fr       */
+/*   Created: 2022/11/14 15:24:39 by falves-b          #+#    #+#             */
+/*   Updated: 2022/11/14 16:06:00 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char	*big, const char *little, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
-	size_t	j;
-	size_t	little_len;
+	unsigned int	i;
 
 	i = 0;
-	little_len = ft_strlen(little);
-	if (!little_len || !len)
-		return ((char *)big);
-	while (i <= len - little_len)
+	while (s[i])
 	{
-		j = 0;
-		while (j < little_len)
-		{
-			if (big[j] != little[j])
-				break ;
-			j++;
-			if (j == little_len)
-				return ((char *)big);
-		}
+		f(i, &s[i]);
 		i++;
-		big++;
 	}
-	return (NULL);
+}
+
+void	func(unsigned int n, char *cptr)
+{
+	*cptr = 48;
+	return ;
+}
+
+int main()
+{
+	
+	/* char	*str;
+
+	str = "abcdef";
+	printf("%s\n", str);
+	ft_striteri(str, &func);
+	printf("%s\n", str); */
 }

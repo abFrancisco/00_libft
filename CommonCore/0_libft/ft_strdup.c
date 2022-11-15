@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:27:45 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/09 17:26:51 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:41:30 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *s)
 	int		size;
 	char	*mem;
 
-	size = ft_strlen((char *)s) + 1;
+	size = ft_strlen(s) + 1;
 	mem = malloc(size);
 	ft_strlcpy(mem, s, size);
 	return (mem);

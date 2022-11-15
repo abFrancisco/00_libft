@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:30:32 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/10 16:03:26 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:42:49 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-int				ft_strlen(char *str);
+size_t			ft_strlen(const char *s);
 int				ft_atoi(const char *nptr);
 void			ft_bzero(void *s, unsigned int n);
 void			*ft_calloc(size_t nmemb, size_t size);
@@ -43,5 +43,8 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
+char			*ft_itoa(int n);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+//void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif

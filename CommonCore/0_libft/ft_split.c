@@ -6,50 +6,55 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:09:40 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/10 16:26:50 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:41:22 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c) //TOO LONG
 {
-	char	**result;
-	char	**result_start;
-	char	*word;
-	int		i;
-	int		j;
+	char		**result;
+	char		**result_start;
+	char		*word;
+	char const	*e;
 
 	result = malloc(ft_strlen(ft_strdup(s)) * sizeof(char *));
 	result_start = result;
-	i = 0;
-	j = 0;
-	while (s[i])
+	e = s;
+	while (1)
 	{
-		if (s[i] == c && j)
+		if (*e == c || *e == '\0')
 		{
-			word = malloc(j + 1);
-			ft_strlcpy(word, &s[i - j], j + 1);
-			printf("%i ", i);
-			printf("%i", j);
-			*result++ = word;
-			j = 0;
+			word = malloc(e - s + 1);
+			ft_strlcpy(word, s, e - s + 1);
+			if (e - s > 1)
+				*result++ = word;
+			if (*e)
+				s = ++e;
 		}
-		else
-			j++;
-		printf("\ni++\n");
-		i++;
+		if (*e == '\0')
+		{
+			*result = NULL;
+			break ;
+		}
+		e++;
 	}
 	return (result_start);
 }
 
-int main()
+/* int main()
 {
-	char *str = "1234 456 789 123 456 789";
+	char *str = "123 456 789             123 456 789                 ";
 	char **split = ft_split(str, ' ');
-	while (*split)
+	while (1)
 	{
-		//printf("%s\n", split);
+		if (*split == NULL)
+		{
+			printf("null %p\n", *split);
+			break ;
+		}
+		printf("%s\n", *split);
 		split++;
 	}
-}
+} */

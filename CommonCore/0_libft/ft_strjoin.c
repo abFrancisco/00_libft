@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:27:47 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/10 16:14:23 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:41:45 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	char	*join;
 
-	len1 = ft_strlen((char *)s1);
-	len2 = ft_strlen((char *)s2);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
 	i = 0;
 	join = malloc(len1 + len2 + 1);
 	if (join == NULL)

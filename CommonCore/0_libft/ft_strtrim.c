@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:28:09 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/10 16:18:58 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:42:47 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	char	*start;
 
-	len = ft_strlen((char *)s1);
+	len = ft_strlen(s1);
 	i = 0;
 	start = malloc(len + 1);
 	while (is_in_set(*s1, set))
