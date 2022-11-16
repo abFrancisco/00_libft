@@ -1,1 +1,14 @@
-ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] [OK] [OK] [OK] [OK] [OK] [OK] 
+[crash]: your memmove does not work with a 128Mo data input !
+Test code:
+	int size = 128 * 1024 * 1024;
+	char *dst = (char *)malloc(sizeof(char) * size);
+	char *data = (char *)malloc(sizeof(char) * size);
+
+	memset(data, 'A', size);
+	if (!dst)
+		exit(TEST_INVISIBLE);
+	ft_memmove(dst, data, size);
+	exit(TEST_SUCCESS);
+
+
