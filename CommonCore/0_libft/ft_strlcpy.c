@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
@@ -26,11 +27,6 @@ unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 	while (i < size - 1 && src[i] != '\0')
 	{
 		dest[i] = src[i];
-		i++;
-	}
-	while (i < size - 1)
-	{
-		dest[i++] = '\0';
 		i++;
 	}
 	dest[i] = '\0';

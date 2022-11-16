@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+ 
 char	**ft_split(char const *s, char c) //TOO LONG
 {
 	char		**result;
@@ -20,18 +20,21 @@ char	**ft_split(char const *s, char c) //TOO LONG
 	char const	*e;
 
 	result = malloc(ft_strlen(ft_strdup(s)) * sizeof(char *));
+	if (!result)
+		return (NULL);
 	result_start = result;
 	e = s;
 	while (1)
 	{
 		if (*e == c || *e == '\0')
 		{
-			word = malloc(e - s + 1);
-			ft_strlcpy(word, s, e - s + 1);
-			if (e - s > 1)
+			if (e - s)
+			{
+				word = malloc(e - s + 1);
+				ft_strlcpy(word, s, e - s + 1);
 				*result++ = word;
-			if (*e)
-				s = ++e;
+			}
+			s = e + 1;
 		}
 		if (*e == '\0')
 		{
@@ -45,8 +48,8 @@ char	**ft_split(char const *s, char c) //TOO LONG
 
 /* int main()
 {
-	char *str = "123 456 789             123 456 789                 ";
-	char **split = ft_split(str, ' ');
+	char *str = "      split       this for   me  !       ";
+	char **split = ft_split(str, ' ');	
 	while (1)
 	{
 		if (*split == NULL)

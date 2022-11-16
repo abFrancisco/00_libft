@@ -24,7 +24,7 @@ int	ft_memcmp(const void *s1, const void *s2, unsigned int n)
 	tmp_s2 = (unsigned char *)s2;
 	if (!n)
 		return (0);
-	while (*tmp_s1 == *tmp_s2 && *tmp_s1 != '\0' && *tmp_s2 != '\0' && ++i < n)
+	while (*tmp_s1 == *tmp_s2 && ++i < n)
 	{
 		tmp_s1++;
 		tmp_s2++;

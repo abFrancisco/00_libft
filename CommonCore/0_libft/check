@@ -13,4 +13,10 @@ strjoin-OK
 strtrim-OK - KO?
 split-OK function too long -KO?
 itoa-brainfart
-strmapi(https://velog.io/@jungjaedev/ftstrmapi)-Looks wrong :S
+
+
+WRONG
+memmove(doesnt pass unit test only, your memmove does not work with a 128Mo data input !)
+strlcat
+strnstr(doesnt pass warmachine only)
+split(you did not protect your split)

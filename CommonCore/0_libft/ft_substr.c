@@ -16,17 +16,29 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	char	*sub;
+	char	*sub_start;
 
 	i = 0;
 	sub = malloc(len + 1);
+	sub_start = sub;
 	if (sub == NULL)
 		return (NULL);
 	while (s[i] && i < start + len)
 	{
 		if (i >= start)
-			sub[i - start] = s[i];
+			*sub++ = s[i];
 		i++;
 	}
-	sub[i - start] = '\0';
-	return (sub);
+	*sub = '\0';
+	return (sub_start);
 }
+
+/* int main()
+{
+	char *str = "01234";
+	char *ptr = ft_substr(str, 10, 10);
+	if (*ptr)
+		printf("%s\n", ptr);
+	else
+		printf("it is NULL\n");
+} */
