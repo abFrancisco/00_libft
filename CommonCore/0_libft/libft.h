@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:30:32 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/16 18:34:21 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:41:08 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,22 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+//bonus
+
+/*Allocates (with malloc(3)) and returns a new node. The member variable ’content’ is initialized with
+the value of the parameter ’content’. The variable ’next’ is initialized to NULL.*/
 t_list			*ft_lstnew(void *content);
+
+/*Adds the node ’new’ at the beginning of the list.*/
+void			ft_lstadd_front(t_list **lst, t_list *new);
+
+/*Counts the number of nodes in a list.*/
+int				ft_lstsize(t_list *lst);
+
+/*Returns the last node of the list.*/
+t_list			*ft_lstlast(t_list *lst);
+
+/*Adds the node ’new’ at the end of the list.*/
+void ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif

@@ -1,22 +1,2 @@
 
-part1
-
-strlcat-KO
-strlcpy-KO
-strnstr-maybe KO
-
-
-part2
-
-substr-OK
-strjoin-OK
-strtrim-OK - KO?
-split-OK function too long -KO?
-itoa-brainfart
-
-
-WRONG
-memmove(doesnt pass unit test only, your memmove does not work with a 128Mo data input !)
-strlcat
-strnstr(doesnt pass warmachine only)
-split(you did not protect your split)
+missing strlcat and split + protections
