@@ -21,7 +21,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	result = malloc(ft_strlen(ft_strdup(s)) * sizeof(char *));
+	result = malloc(ft_strlen(s) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	result_start = result;
@@ -37,8 +37,13 @@ char	**ft_split(char const *s, char c)
 					return (NULL);
 				ft_strlcpy(word, s, e - s + 1);
 				*result++ = word;
+				s = e;
 			}
-			s = e + 1;
+			else
+			{
+				s++;
+				e++;
+			}
 		}
 		if (*e == '\0')
 		{

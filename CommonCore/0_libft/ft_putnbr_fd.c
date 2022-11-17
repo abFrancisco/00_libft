@@ -14,11 +14,25 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*nbr;
+	char	nbr;
+	long	l;
 
 	if (!fd)
 		return ;
-	nbr = ft_itoa(n);
-	write(fd, nbr, ft_strlen(nbr));
+	l = n;
+	if (l < 0)
+	{
+		write(fd, "-", 1);
+		ft_putnbr_fd(-l / 10, fd);
+		nbr = (-l % 10) + 48;
+	}
+	else if (l < 10)
+		nbr = l + 48;
+	else
+	{
+		ft_putnbr_fd(l / 10, fd);
+		nbr = (l % 10) + 48;
+	}
+	write(fd, &nbr, 1);
 	return ;
 }

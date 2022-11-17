@@ -12,54 +12,45 @@
 
 #include "libft.h"
 
-static char	*invert(char *str)
+static int	ft_nlen(int n)
 {
-	char	*inv;
-	char	*inv_ptr;
-	int		len;
-	int		i;
+	int	len;
 
-	inv = malloc(16);
-	inv_ptr = inv;
 	len = 0;
-	if (*str == '-')
-	{
-		str++;
-		*inv++ = '-';
-	}
-	i = 0;
-	while (str[i++])
+	if (n <= 0)
 		len++;
-	i = 0;
-	while (len > 0)
-		inv[i++] = str[(len--) - 1];
-	inv[i] = '\0';
-	return (inv_ptr);
+	while (n)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
 
-char	*ft_itoa(int n)//this wrong
+char	*ft_itoa(int n)
 {
 	char	*str;
-	char	*str_ptr;
 	long	l;
+	int		len;
 
-	str = malloc(16);
+	len = ft_nlen(n);
+	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	str_ptr = str;
+	str[len] = '\0';
 	l = n;
 	if (n < 0)
 	{
 		l = -l;
-		*str++ = '-';
+		str[0] = '-';
 	}
 	while (l)
 	{
-		*str++ = (l % 10) + '0';
+		str[len - 1] = (l % 10) + '0';
 		l = l / 10;
+		len--;
 	}
 	if (n == 0)
-		*str++ = '0';
-	*str = '\0';
-	return (invert(str_ptr));
+		str[len - 1] = '0';
+	return (str);
 }
