@@ -1,37 +1,9 @@
-ft_lstadd_back:[FAILED] [FAILED] [OK] 
-[fail]: your lstadd_back does not work with basic input
+ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] 
+[crash]: your strlcat crush when null parameter is sent with a size of 0
 Test code:
-	t_list *l = lstnew(strdup("nyacat"));
-	t_list *n = lstnew(strdup("OK"));
+	char b[0xF] = "nyan !";
 
-	ft_lstadd_back(&l, n);
-	if (l->next == n && !strcmp(l->next->content, "OK"))
-	{
-		exit(TEST_SUCCESS);
-	}
-	exit(TEST_FAILED);
+	ft_strlcat(((void*)0), b, 0);
+	exit(TEST_SUCCESS);
 
-Diffs:
- lstadd_back: |0xb59a80|
-ft_lstadd_back: |0xb59a80|
-
-[fail]: your lstadd_back does not work with basic input
-Test code:
-	t_list *l = lstnew(strdup("nyacat"));
-	t_list *n = lstnew(strdup("OK"));
-
-	ft_lstadd_back(&l, n);
-	if (l->next == n && !strcmp(l->next->content, "OK"))
-	{
-		free(l->next);
-		free(l);
-		exit(TEST_SUCCESS);
-	}
-	free(l->next);
-	free(l);
-	exit(TEST_FAILED);
-
-Diffs:
- lstadd_back: |0xb59ed0|
-ft_lstadd_back: |0xb59ed0|
 
