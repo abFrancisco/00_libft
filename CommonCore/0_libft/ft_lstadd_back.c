@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:40:30 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/18 16:33:35 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:23:19 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	t_list	*curr;
+
+	curr = *lst;
+	new->next = NULL;
 	if (*lst == NULL)
-	{
 		*lst = new;
-		new->next = NULL;
-		return ;
-	}
-	while (*lst)
+	else
 	{
-		if ((*lst)->next == NULL)
-		{
-			(*lst)->next = new;
-			new->next = NULL;	
-		}
-		lst++;
+		while (curr->next != NULL)
+			curr = curr->next;
+		curr->next = new;
 	}
 	return ;
 }
