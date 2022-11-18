@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:30:32 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/17 13:41:08 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:13:02 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,21 @@ int				ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
 
 /*Adds the node ’new’ at the end of the list.*/
-void ft_lstadd_back(t_list **lst, t_list *new);
+void			ft_lstadd_back(t_list **lst, t_list *new);
 
+/*Takes as a parameter a node and frees the memory of the node’s content using the function ’del’ given
+as a parameter and free the node. The memory of ’next’ must not be freed.*/
+void			ft_lstdelone(t_list *lst, void (*del)(void*));
+
+/*Deletes and frees the given node and every successor of that node, using the function ’del’ and free(3).
+Finally, the pointer to the list must be set to NULL.*/
+void			ft_lstclear(t_list **lst, void (*del)(void*));
+
+/*Iterates the list ’lst’ and applies the function ’f’ on the content of each node.*/
+void			ft_lstiter(t_list *lst, void (*f)(void *));
+
+/*Iterates the list ’lst’ and applies the function ’f’ on the content of each node. Creates a new
+list resulting of the successive applications of the function ’f’. The ’del’ function is used to
+delete the content of a node if needed.*/
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif

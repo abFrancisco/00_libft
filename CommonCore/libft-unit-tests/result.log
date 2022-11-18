@@ -1,3 +1,21 @@
+ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_bzero:      [OK] [OK] [OK] [OK] 
+ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_isalpha:    [OK] 
+ft_isdigit:    [OK] 
+ft_isalnum:    [OK] 
+ft_isascii:    [OK] 
+ft_isprint:    [OK] 
+ft_toupper:    [OK] 
+ft_tolower:    [OK] 
+ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] 
 [crash]: your strlcat crush when null parameter is sent with a size of 0
 Test code:
@@ -7,3 +25,112 @@ Test code:
 	exit(TEST_SUCCESS);
 
 
+ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_calloc:     [OK] [OK] [OK] [OK] [OK] 
+ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {not protected}[OK] 
+ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_split:      [OK] [OK] [FAILED] [OK] [OK] [OK] [FAILED] [CRASH] [CRASH] [CRASH] {not protected}
+[fail]: your split does not work with one word
+Test code:
+	char *s = "                  olol";
+	char **result = ft_split(s, ' ');
+
+	split_cmp_array(expected, result);
+
+Diffs:
+       split: |olol|
+    ft_split: |Ð^Ý|
+
+[fail]: your split will segfault in case --> *str="\0aa\0bbb" c='\0' 
+Test code:
+	char **expected = ft_split("\0aa\0bbb", '\0');
+
+	for (int i = 0; expected[i]; i++)
+	{
+		if (expected[i] != ((void*)0))
+			exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+
+
+[crash]: your split does not work with basic input
+Test code:
+	char *s = "split  ||this|for|me|||||!|";
+	int i = 0;
+	char **result = ft_split(s, '|');
+
+	while (result[i])
+	{
+		if (strcmp(result[i], *expected))
+		{
+			exit(TEST_FAILED);
+		}
+		free(result[i]);
+		i++;
+		expected++;
+	}
+	free(result);
+	exit(TEST_SUCCESS);
+
+
+[crash]: you did not protect your split
+Test code:
+	char *s = "      split       this for   me  !       ";
+
+	char **result = ft_split(s, ' ');
+	if (!result)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+
+[crash]: your split does not work with basic input
+Test code:
+	char *s = "      split       this for   me  !       ";
+
+	char **result = ft_split(s, ' ');
+	while (*result)
+	{
+		if (strcmp(*result, *expected))
+		{
+			exit(TEST_FAILED);
+		}
+		result++;
+		expected++;
+	}
+	exit(TEST_SUCCESS);
+
+
+ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_putchar_fd: [OK] [OK] 
+ft_putstr_fd:  [OK] [OK] {protected}
+ft_putendl_fd: [OK] [OK] {protected}
+ft_putnbr_fd:  [OK] [OK] [OK] [OK] [OK] 
+ft_lstnew:     [OK] [OK] [OK] [OK] 
+ft_lstadd_front: [OK] [OK] [OK] 
+ft_lstsize:    [OK] [OK] 
+ft_lstlast:    [OK] [OK] 
+ft_lstadd_back:[OK] [OK] [OK] 
+ft_lstdelone:  [OK] {protected}
+ft_lstclear:   [OK] [OK] [OK] {protected}
+ft_lstiter:    [OK] {protected}
+ft_lstmap:     [CRASH] {protected}
+[crash]: your lstmap does not work with basic input
+Test code:
+	t_list *l = lstnew(strdup(" 1 2 3 "));
+	t_list *ret;
+
+	l->next = lstnew(strdup("ss"));
+	l->next->next = lstnew(strdup("-_-"));
+	ret = ft_lstmap(l, lstmap_f, lstdel_f);
+	if (!strcmp(ret->content, "OK !") && !strcmp(ret->next->content, "OK !") && !strcmp(ret->next->next->content, "OK !") && !strcmp(l->content, " 1 2 3 ") && !strcmp(l->next->content, "ss") && !strcmp(l->next->next->content, "-_-"))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+
+ft_striteri:   [OK] [OK] {not protected}

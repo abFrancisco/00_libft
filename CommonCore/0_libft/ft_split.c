@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:09:40 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/16 17:16:44 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:16:53 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,34 @@
  
 char	**ft_split(char const *s, char c)
 {
-	char		**result;
-	char		**result_start;
-	char		*word;
-	char const	*e;
+	char	**result;
+	char	**result_start;
+	char	*ptr;
 
-	if (!s)
-		return (NULL);
-	result = malloc(ft_strlen(s) * sizeof(char *));
-	if (!result)
-		return (NULL);
+	result = malloc(ft_strlen(s) + 1);
 	result_start = result;
-	e = s;
-	while (1)
+	while (*s)
 	{
-		if (*e == c || *e == '\0')
+		ptr = NULL;
+		if (*s != c)
 		{
-			if (e - s)
-			{
-				word = malloc(e - s + 1);
-				if (!word)
-					return (NULL);
-				ft_strlcpy(word, s, e - s + 1);
-				*result++ = word;
-				s = e;
-			}
-			else
-			{
-				s++;
-				e++;
-			}
+			ptr = ft_strchr(s, c);
+			if (!ptr)
+				ptr = ft_strchr(s, '\0');
+			*result = malloc(ptr - s + 1);
+			ft_strlcpy(*result, s, ptr - s + 1);
+			s = ptr + 1;
+			result++;
 		}
-		if (*e == '\0')
-		{
-			*result = NULL;
-			break ;
-		}
-		e++;
+		else
+			s++;
 	}
 	return (result_start);
 }
 
 /* int main()
 {
-	char *str = "      split       this for   me  !       ";
+	char *str = "     split       this for   me  !";
 	char **split = ft_split(str, ' ');	
 	while (1)
 	{

@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 00:04:28 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/18 15:34:51 by falves-b         ###   ########.fr       */
+/*   Created: 2022/11/18 16:58:52 by falves-b          #+#    #+#             */
+/*   Updated: 2022/11/18 18:00:22 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	dst_len;
-	size_t	src_len;
-	size_t	i;
+	t_list	*lst2;
+	t_list	*node;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	i = 0;
-	if (size < dst_len + 1)
-		return (size + src_len);
-	if (size > dst_len + 1)
+	lst2 = NULL;
+	if (lst && f && del)
 	{
-		while (src[i] != '\0' && dst_len + 1 + i < size)
+		while (lst)
 		{
-			dst[dst_len + i] = src[i];
-			i++;
+			node = ft_lstnew(f(lst->content));
+			if (!node)
+				ft_lstclear(&node, del);
+			ft_lstadd_back(&lst2, node);
+			lst = lst->next;
 		}
 	}
-	dst[dst_len + i] = '\0';
-	return (dst_len + src_len);
+	return (lst2);
 }
