@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:28:12 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/14 12:28:05 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/20 23:40:14 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	char	*sub;
 	char	*sub_start;
+	size_t	i;
 
-	i = 0;
+	if (!s)
+		return (NULL);
 	sub = malloc(len + 1);
 	sub_start = sub;
+	i = 0;
 	if (sub == NULL)
 		return (NULL);
 	while (s[i] && i < start + len)

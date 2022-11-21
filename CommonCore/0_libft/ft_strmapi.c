@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:12:02 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/14 15:42:13 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/20 23:46:11 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	str = malloc(ft_strlen(s) + 1);
 	if (!str)
 		return (NULL);

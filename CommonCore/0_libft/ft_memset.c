@@ -6,13 +6,13 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:43:56 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/09 17:36:55 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/21 01:11:38 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, unsigned int n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*tmp;
 

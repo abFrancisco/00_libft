@@ -6,11 +6,11 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:09:40 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/18 18:51:58 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/21 00:37:47 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/* #include "libft.h"
  
 unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
@@ -33,7 +33,7 @@ unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 }
 
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c) //use memchr maybe
 {
 	char	**result;
 	char	**result_start;
@@ -74,4 +74,4 @@ int main()
 		printf("%s\n", *split);
 		split++;
 	}
-}
+} */

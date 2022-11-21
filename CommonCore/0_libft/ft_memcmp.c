@@ -6,14 +6,14 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:51:46 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/10 13:25:03 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/21 00:40:29 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-int	ft_memcmp(const void *s1, const void *s2, unsigned int n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned int	i;
 	unsigned char	*tmp_s1;
