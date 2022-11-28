@@ -6,12 +6,11 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:25:39 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/23 11:56:10 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:58:55 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <fcntl.h>
 
 static void	ft_putchar(char c, int fd)
 {
