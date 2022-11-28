@@ -6,33 +6,47 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:25:39 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/16 18:14:03 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:56:10 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <fcntl.h>
 
-void	ft_putnbr_fd(int n, int fd)
+static void	ft_putchar(char c, int fd)
 {
-	char	nbr;
-	long	l;
+	write(fd, &c, 1);
+}
 
-	if (!fd)
-		return ;
-	l = n;
-	if (l < 0)
+static long	get_long_lenght(long nb)
+{
+	long	size;
+
+	size = 1;
+	while (nb >= 10)
 	{
-		write(fd, "-", 1);
-		ft_putnbr_fd(-l / 10, fd);
-		nbr = (-l % 10) + 48;
+		nb /= 10;
+		size *= 10 ;
 	}
-	else if (l < 10)
-		nbr = l + 48;
-	else
+	return (size);
+}
+
+void	ft_putnbr_fd(int nb, int fd)
+{
+	long	size;
+	long	nb_l;
+
+	nb_l = nb;
+	if (nb_l < 0)
 	{
-		ft_putnbr_fd(l / 10, fd);
-		nbr = (l % 10) + 48;
+		ft_putchar('-', fd);
+		nb_l = -nb_l;
 	}
-	write(fd, &nbr, 1);
-	return ;
+	size = get_long_lenght(nb_l);
+	while (size != 0)
+	{
+		ft_putchar(nb_l / size + '0', fd);
+		nb_l %= size;
+		size /= 10;
+	}
 }

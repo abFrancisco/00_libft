@@ -22,8 +22,4 @@ fclean: clean
 re:     fclean all
 bonus:	$(OBJS) $(BONUS_OBJS)
 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-# for libft unit test
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
 .PHONY : all clean fclean re bonus

@@ -6,11 +6,12 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:27:55 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/14 16:08:19 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:26:26 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
@@ -40,18 +41,51 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
 /* int main()
 {
+	char *str = "lorem ipsum dolor sit amet";
+	char *res;
+	int	i = 4;
 	
-	char *str = "abc123abc";
-	char *sub = "xx";
-	
-
-	char *ptr = ft_strnstr(str, sub, 20);
-	if (ptr)
-		printf("%s\n",ptr);
+	res = ft_strnstr(str, "", 10);
+	if (res)
+		printf("%i - %s\n", i, res);
 	else
-		printf("its a NULL\n");
-}
- */
+		printf("%i - null\n", i);
+	i++;
+	res = ft_strnstr(str, "ipsumm", 30);
+	if (res)
+		printf("%i - %s\n", i, res);
+	else
+		printf("%i - null\n", i);
+	i++;
+	res = ft_strnstr(str, "dol", 30);
+	if (res)
+		printf("%i - %s\n", i, res);
+	else
+		printf("%i - null\n", i);
+	i++;
+	res = ft_strnstr(str, "consectetur", 30);
+	if (res)
+		printf("%i - %s\n", i, res);
+	else
+		printf("%i - null\n", i);
+	i++;
+	res = ft_strnstr(str, "sit", 10);
+	if (res)
+		printf("%i - %s\n", i, res);
+	else
+		printf("%i - null\n", i);
+	i++;
+	res = ft_strnstr(str, "dolor", 15);
+	if (res)
+		printf("%i - %s\n", i, res);
+	else
+		printf("%i - null\n", i);
+	i++;
+	res = ft_strnstr(str, "dolor", 0);
+	if (res)
+		printf("%i - %s\n", i, res);
+	else
+		printf("%i - null\n", i);
+}*/
