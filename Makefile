@@ -13,16 +13,12 @@ CFLAGS = -Wall -Wextra -Werror
 	${CC} ${CFLAGS} -c $< -o ${<:c=o}
 $(NAME): ${OBJS}
 	ar rcs ${NAME} ${OBJS}
+bonus:	$(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 all:    ${NAME}
-
 clean:
 	${RM} ${OBJS} ${BONUS_OBJS}
 fclean: clean
 	${RM} ${NAME}
 re:     fclean all
-bonus:	$(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
-.PHONY : all clean fclean re bonus
+.PHONY : all clean fclean re
