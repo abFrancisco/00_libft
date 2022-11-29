@@ -13,12 +13,12 @@ CFLAGS = -Wall -Wextra -Werror
 	${CC} ${CFLAGS} -c $< -o ${<:c=o}
 $(NAME): ${OBJS}
 	ar rcs ${NAME} ${OBJS}
-bonus:	$(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus:	$(BONUS_OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS)
 all:    ${NAME}
 clean:
 	${RM} ${OBJS} ${BONUS_OBJS}
 fclean: clean
 	${RM} ${NAME}
 re:     fclean all
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus
