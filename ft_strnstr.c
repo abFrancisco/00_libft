@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:27:55 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/28 23:34:01 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:35:14 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 	little_len = ft_strlen(little);
 	if (!little_len)
 		return ((char *)big);
+	if (!len)
+		return (NULL);
 	while (*big && len >= little_len)
 	{	
 		if (!ft_strncmp(big, little, little_len) && big)
@@ -29,4 +31,3 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-//check crush problem in unit_tester
