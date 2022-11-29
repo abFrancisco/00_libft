@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:09:40 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/29 15:30:01 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:10:00 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	result = ft_calloc(ft_strlen(s) + 1000, 1);
+	result = ft_calloc(ft_strlen(s) * sizeof(char *), 1);
 	result_start = result;
 	if (!result || !ft_strlen(s))
 		return (result_start);
@@ -50,14 +50,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (result_start);
 }
-/*= test_ft_split ================================================================
-$> cp /tmp/tmpmqqxfcxs/ref/libft.a libft.a
-
--rw-r--r-- 1 deepthought root 44558 Nov 29 14:56 libft.a
-
-Segmentation fault (core dumped)
-
-Error encountered while testing
-Grade: 0
-
-= Final grade: 101 =============================================================*/
