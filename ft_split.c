@@ -6,7 +6,7 @@
 /*   By: falves-b <falves-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:09:40 by falves-b          #+#    #+#             */
-/*   Updated: 2022/11/29 23:10:00 by falves-b         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:00:01 by falves-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	result = ft_calloc(ft_strlen(s) * sizeof(char *), 1);
+	result = ft_calloc(ft_strlen(s) / 2 + 2, sizeof(char *));
 	result_start = result;
 	if (!result || !ft_strlen(s))
 		return (result_start);
